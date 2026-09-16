@@ -47,9 +47,44 @@ INTENTS: list[Intent] = [
         name="help",
         patterns=[r"\bhelp\b", r"what can you do"],
         responses=[
-            "I can chat about greetings, how you're doing, and basic small talk. "
-            "Try saying hi, asking how I am, or asking my name."
+            "I can chat about greetings, how you're doing, jokes, and basic small talk. "
+            "Try saying hi, asking how I am, asking for a joke, or asking my name."
         ],
+    ),
+    Intent(
+        name="joke",
+        patterns=[r"\bjoke\b", r"make me laugh", r"tell me something funny"],
+        responses=[
+            "Why do programmers prefer dark mode? Because light attracts bugs.",
+            "I told my computer I needed a break, and it said 'no problem, I'll go to sleep.'",
+            "Why did the chatbot break up with the calculator? It couldn't count on it.",
+        ],
+    ),
+    Intent(
+        name="mood_positive",
+        patterns=[r"i.?m (feeling )?(good|great|fine|happy|awesome)"],
+        responses=["Glad to hear it!", "That's great!", "Love that for you."],
+    ),
+    Intent(
+        name="mood_negative",
+        patterns=[
+            r"i.?m (feeling )?(sad|tired|bad|stressed|down)",
+            r"i.?m not (feeling )?(good|great|ok|okay)",
+        ],
+        responses=[
+            "Sorry to hear that. Want to talk about it?",
+            "That sounds tough. Take it one step at a time.",
+        ],
+    ),
+    Intent(
+        name="time",
+        patterns=[r"what time is it", r"current time"],
+        responses=["I don't have a clock built in yet, but check your system time!"],
+    ),
+    Intent(
+        name="compliment",
+        patterns=[r"you.?re (great|awesome|smart|cool|nice)", r"good bot", r"good job"],
+        responses=["Thanks, that means a lot!", "Aw, thank you!"],
     ),
 ]
 
